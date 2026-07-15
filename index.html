@@ -25,7 +25,7 @@
       <div>
         <p class="eyebrow">课后反馈系统</p>
         <h1>学生学习情况反馈</h1>
-        <p class="lead">按日期记录每节课学了什么、做了什么、作业安排和作业反馈，学生与家长点开即可查看。</p>
+        <p class="lead">按日期记录每节课的大致学习内容、课堂练习、作业安排和作业反馈，学生与家长点开即可了解情况。</p>
       </div>
       <div class="summary">
         <span id="courseCount">0 节课</span>
@@ -56,37 +56,31 @@
             </label>
           </div>
 
-          <div class="field-row lesson-meta-row">
-            <label>
-              课程次数
-              <select id="lessonNo" name="lessonNo" required>
-                <option value="第一课">第一课</option>
-                <option value="第二课">第二课</option>
-                <option value="第三课">第三课</option>
-                <option value="第四课">第四课</option>
-                <option value="第五课">第五课</option>
-                <option value="第六课">第六课</option>
-                <option value="第七课">第七课</option>
-                <option value="第八课">第八课</option>
-                <option value="第九课">第九课</option>
-                <option value="第十课">第十课</option>
-                <option value="第十一课">第十一课</option>
-                <option value="第十二课">第十二课</option>
-                <option value="第十三课">第十三课</option>
-                <option value="第十四课">第十四课</option>
-                <option value="第十五课">第十五课</option>
-                <option value="第十六课">第十六课</option>
-                <option value="第十七课">第十七课</option>
-                <option value="第十八课">第十八课</option>
-                <option value="第十九课">第十九课</option>
-                <option value="第二十课">第二十课</option>
-              </select>
-            </label>
-            <label>
-              本节课主题
-              <input id="topic" name="topic" type="text" placeholder="例如：一元一次方程应用题" required />
-            </label>
-          </div>
+          <label>
+            课程次数
+            <select id="lessonNo" name="lessonNo" required>
+              <option value="第一课">第一课</option>
+              <option value="第二课">第二课</option>
+              <option value="第三课">第三课</option>
+              <option value="第四课">第四课</option>
+              <option value="第五课">第五课</option>
+              <option value="第六课">第六课</option>
+              <option value="第七课">第七课</option>
+              <option value="第八课">第八课</option>
+              <option value="第九课">第九课</option>
+              <option value="第十课">第十课</option>
+              <option value="第十一课">第十一课</option>
+              <option value="第十二课">第十二课</option>
+              <option value="第十三课">第十三课</option>
+              <option value="第十四课">第十四课</option>
+              <option value="第十五课">第十五课</option>
+              <option value="第十六课">第十六课</option>
+              <option value="第十七课">第十七课</option>
+              <option value="第十八课">第十八课</option>
+              <option value="第十九课">第十九课</option>
+              <option value="第二十课">第二十课</option>
+            </select>
+          </label>
 
           <label>
             课程反馈：这节课学了什么
@@ -145,7 +139,7 @@
             <h2 id="recordsTitle">按日期展开反馈</h2>
           </div>
           <div class="tools">
-            <input id="search" type="search" placeholder="搜索学生、主题、题目、作业" />
+            <input id="search" type="search" placeholder="搜索学生、课次、题目、作业" />
             <button class="ghost" id="exportData" type="button">导出</button>
           </div>
         </div>
@@ -160,15 +154,14 @@
           <span class="date"></span>
           <span class="lesson-no"></span>
           <span class="student"></span>
-          <span class="topic"></span>
           <span class="badge"></span>
           <span class="chevron">⌄</span>
         </button>
         <div class="lesson-body">
           <div class="quick-summary">
             <div>
-              <span>本节重点</span>
-              <strong class="topicLine"></strong>
+              <span>本节课次</span>
+              <strong class="lessonLine"></strong>
             </div>
             <div>
               <span>家长关注</span>

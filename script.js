@@ -85,7 +85,6 @@ const sampleLessons = [
     date: "2026-07-15",
     student: "张同学",
     lessonNo: "第二课",
-    topic: "分数应用题与单位“1”的判断",
     content: "复习分数乘除法的数量关系\n讲解如何找单位“1”\n整理“已知部分求整体”和“已知整体求部分”的解题步骤",
     questions: "课本 P38 第 2、4、6 题\n补充练习：单位“1”判断 5 题\n错题讲评：把比较量当成单位“1”的题型",
     homework: "完成练习册 P21 第 1-6 题\n订正课堂错题，并写出错因",
@@ -99,7 +98,6 @@ const sampleLessons = [
     date: "2026-07-12",
     student: "张同学",
     lessonNo: "第一课",
-    topic: "阅读理解：概括段意与提取关键信息",
     content: "讲解段落中心句的寻找方法\n练习用关键词压缩长句\n区分事实信息和作者观点",
     questions: "阅读短文《桥》\n完成 4 道信息提取题\n讲评第 3 题：答案必须回到原文定位",
     homework: "完成阅读训练一篇\n每段写一句段意，答案旁标原文依据",
@@ -116,7 +114,6 @@ function normalizeLesson(lesson, index = 0) {
     date: lesson.date || new Date().toISOString().slice(0, 10),
     student: lesson.student || "未填写学生",
     lessonNo: lesson.lessonNo || lesson.courseNo || lesson.lessonCount || defaultLessonNo(index),
-    topic: lesson.topic || "未填写主题",
     content: lesson.content || "",
     questions: lesson.questions || "",
     homework: lesson.homework || "",
@@ -222,9 +219,8 @@ function renderLessons() {
     node.querySelector(".date").textContent = formatDate(lesson.date);
     node.querySelector(".lesson-no").textContent = lesson.lessonNo;
     node.querySelector(".student").textContent = lesson.student;
-    node.querySelector(".topic").textContent = lesson.topic;
     node.querySelector(".badge").textContent = lesson.status;
-    node.querySelector(".topicLine").textContent = `${lesson.lessonNo} · ${lesson.topic}`;
+    node.querySelector(".lessonLine").textContent = lesson.lessonNo;
     node.querySelector(".priorityLine").textContent = lesson.priority;
     fillList(node.querySelector(".content"), lesson.content);
     fillList(node.querySelector(".questions"), lesson.questions);
@@ -245,7 +241,6 @@ function renderLessons() {
       form.date.value = lesson.date;
       form.student.value = lesson.student;
       form.lessonNo.value = lesson.lessonNo;
-      form.topic.value = lesson.topic;
       form.content.value = lesson.content;
       form.questions.value = lesson.questions;
       form.homework.value = lesson.homework;
@@ -270,7 +265,7 @@ function renderLessons() {
 }
 
 function openFamilyReport(lesson) {
-  reportTitle.textContent = `${lesson.student} · ${lesson.lessonNo} · ${lesson.topic}`;
+  reportTitle.textContent = `${lesson.student} · ${lesson.lessonNo}课后反馈`;
   reportMeta.innerHTML = `
     <span>${formatDate(lesson.date)}</span>
     <span>${escapeHtml(lesson.lessonNo)}</span>
@@ -327,7 +322,6 @@ form.addEventListener("submit", (event) => {
     date: formData.get("date"),
     student: formData.get("student").trim(),
     lessonNo: formData.get("lessonNo"),
-    topic: formData.get("topic").trim(),
     content: formData.get("content").trim(),
     questions: formData.get("questions").trim(),
     homework: formData.get("homework").trim(),
